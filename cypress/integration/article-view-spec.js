@@ -31,7 +31,8 @@ describe('Article view', () => {
   it('check footer', () => {
     goToCatArticle()
     articlePage.selectOptionFromActionsMenu('sections')
-    articleMenuPage.selectOptionFromSections('Suggested_articles')
+    cy.upArrow()
+    cy.enter()
     articlePage.footerTitle().should('have.text', enJson['suggested-articles'])
     articlePage.recommendationsList().should('have.length', 3)
     cy.downArrow()
