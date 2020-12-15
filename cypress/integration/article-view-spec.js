@@ -49,7 +49,8 @@ describe('Article view', () => {
     cy.downArrow().enter()
     articlePage.title().should('have.text', 'Gato')
     articlePage.selectOptionFromActionsMenu('sections')
-    articleMenuPage.selectOptionFromSections('Artigos_sugeridos')
+    cy.upArrow()
+    cy.enter()
     articlePage.footerTitle().should('have.text', ptJson['suggested-articles'])
   })
 
@@ -127,7 +128,7 @@ describe('Article view', () => {
     cy.clickCloseButton()
     articlePage.getArticleText().should('have.attr', 'style', 'font-size: 14px;')
     articlePage.selectOptionFromActionsMenu('sections')
-    articleMenuPage.selectOptionFromSections('Cats_by_location')
+    articleMenuPage.selectOptionFromSections('Etymology_and_naming')
     articlePage.getArticleText().should('have.attr', 'style', 'font-size: 14px;')
   })
 
